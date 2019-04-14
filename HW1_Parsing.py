@@ -34,6 +34,15 @@ for file in glob.glob("html_files/*.html"):
             price = r.find("a",{"class": "price"}).text
             supply = r.find("td", {"class": "circulating-supply"})['data-sort']
             volume = r.find("a",{"class": "volume"}).text
+            df = df.append({
+			'symbol': symbol,
+			'name': name,
+			'market_cap': market_cap,
+			'price': price,
+			'supply': supply,
+            'volume': volume,
+			}, ignore_index=True)
+
             
 df.to_csv("parsed_files/HW1_Parsed_Dataset.csv")
            
