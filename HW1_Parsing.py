@@ -31,9 +31,9 @@ for file in glob.glob("html_files/*.html"):
             symbol = r.find("td", {"class": "currency-name"}).find("span",{"class":"currency-symbol"}).find("a").text
             name = r.find("td", {"class": "currency-name"}).find("a",{"class":"currency-name-container"}).text
             market_cap = r.find("td", {"class": "market-cap"})['data-sort']
-            price = r.find("a",{"class": "price"}).text
+            price = r.find("a",{"class": "price"})['data-usd']
             supply = r.find("td", {"class": "circulating-supply"})['data-sort']
-            volume = r.find("a",{"class": "volume"}).text
+            volume = r.find("a",{"class": "volume"})['data-usd']
             df = df.append({
 			'symbol': symbol,
 			'name': name,
@@ -43,11 +43,13 @@ for file in glob.glob("html_files/*.html"):
             'volume': volume,
 			}, ignore_index=True)
 
+df.to_csv("parsed_files/coinmarketcap_dataset2.csv")
+
             
-df.to_csv("parsed_files/HW1_Parsed_Dataset.csv")
-           
+
+
             
-                
-            
-        
-        
+
+
+
+
