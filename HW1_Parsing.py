@@ -34,6 +34,7 @@ for file in glob.glob("html_files/*.html"):
             price = r.find("a",{"class": "price"})['data-usd']
             supply = r.find("td", {"class": "circulating-supply"})['data-sort']
             volume = r.find("a",{"class": "volume"})['data-usd']
+            currency_change = r.find("td", {"class": "percent-change"})['data-percentusd']
             df = df.append({
 			'symbol': symbol,
 			'name': name,
@@ -41,9 +42,13 @@ for file in glob.glob("html_files/*.html"):
 			'price': price,
 			'supply': supply,
             'volume': volume,
+            'currency_change': currency_change
 			}, ignore_index=True)
+    
+#supply =[i for i in supply if i is not None]
 
-df.to_csv("parsed_files/coinmarketcap_dataset_0415.csv")
+df.to_csv("parsed_files/coinmarketcap_dataset_0422.csv")
+
 
             
 
