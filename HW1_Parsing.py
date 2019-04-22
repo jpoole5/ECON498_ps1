@@ -9,6 +9,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import os
 import glob
+import numpy as np
 
 if not os.path.exists("parsed_files"):
 	os.mkdir("parsed_files")
@@ -45,9 +46,10 @@ for file in glob.glob("html_files/*.html"):
             'currency_change': currency_change
 			}, ignore_index=True)
     
-#supply =[i for i in supply if i is not None]
 
-df.to_csv("parsed_files/coinmarketcap_dataset_0422.csv")
+new_df = df.replace(to_replace=r'None', value= '0', regex=True)
+
+new_df.to_csv("parsed_files/coinmarketcap_dataset_0422_cleaned.csv")
 
 
             
