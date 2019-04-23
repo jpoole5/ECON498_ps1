@@ -9,7 +9,6 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import os
 import glob
-import numpy as np
 
 if not os.path.exists("parsed_files"):
 	os.mkdir("parsed_files")
