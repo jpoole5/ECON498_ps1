@@ -4,7 +4,7 @@ The associated repository is used to scrape data from coinmarketcap.com, parses 
 
 ##Usage
 
-1. Run the program named HW1_coinmarketcap_request. It will insert HTML files into the html_files folder.
+1. Run the program named HW1_Request. It will insert HTML files into the html_files folder.
 
 2. Run the HW1_Parsing program; after a few minutes, it will combine the data from the HTML folders into the parsed_files folder
 into a csv file named coinmarketcap_dataset_0422_cleaned.
